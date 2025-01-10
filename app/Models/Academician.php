@@ -11,7 +11,7 @@ class Academician extends Model
         'name', 'staff_number', 'email', 'college', 'department', 'position', 'user_id'
     ];
 
-    //test comment
+    //testing testing
 
     /**
      * Academician can lead many grants (as project leader).
