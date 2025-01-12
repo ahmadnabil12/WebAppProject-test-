@@ -35,6 +35,8 @@ class GrantController extends Controller
             'end_date' => 'required|date',
             'duration' => 'required|numeric',
             'leader_id' => 'required|exists:academicians,id',  // Ensure leader_id is passed and valid
+            'members' => 'nullable|array',  // Make members optional
+            'members.*' => 'exists:academicians,id',  // Ensure each selected member exists
         ]);
 
         // Create a new grant
@@ -47,6 +49,8 @@ class GrantController extends Controller
             'end_date' => $request->end_date,
             'duration' => $request->duration,
             'leader_id' => $request->leader_id,  // Add leader_id to the grant creation
+            'members' => 'nullable|array',  // Make members optional
+            'members.*' => 'exists:academicians,id',  // Ensure each selected member exists
         ]);
 
          // Attach the project leader to the grant
