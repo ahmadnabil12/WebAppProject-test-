@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Grant; 
 
@@ -48,12 +49,14 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // Define the isLeader gate properly
-        Gate::define('isLeader', function ($user, Grant $grant) {
-            // Check if the logged-in user is the leader for the given grant
-            return $grant->academicians()
-                         ->wherePivot('role', 'leader') // Check if the user's role in the pivot table is 'leader'
-                         ->wherePivot('academician_id', $user->id) // Check if the user is the leader
-                         ->exists(); // Return true if the user is the leader
+        Gate::define('isLeader', function ($user) {
+
+            //$grants = Grant::all();
+
+                         return Grant::whereHas('academicians', function ($query) use ($user) {
+                            $query->where('user_id', $user->id)
+                                  ->where('role', 'leader');
+                        })->exists();
         });
 
         /*Gate::define('isMember', function ($user, $grant) {
