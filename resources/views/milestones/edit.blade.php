@@ -14,6 +14,16 @@
             </div>
 
             <div class="form-group mb-3">
+                <label>Grant List</label>
+                <select class="form-control" name="grant_id" required>
+                    <option value="">Select Grant</option>
+                    @foreach($grants as $grant)
+                        <option value="{{ $grant->id }}" {{ $milestone->grant_id == $grant->id ? 'selected' : '' }}>{{ $grant->project_title }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
                 <label for="completion_date" class="form-label">Completion Date</label>
                 <input type="date" class="form-control" id="completion_date" name="completion_date" value="{{ $milestone->completion_date }}" required>
             </div>
@@ -35,16 +45,6 @@
             <div class="form-group mb-3">
                 <label for="remark" class="form-label">Remark</label>
                 <input type="text" class="form-control" id="remark" name="remark" value="{{ $milestone->remark }}" required>
-            </div>
-
-            <div class="form-group mb-3">
-                <label>Grant List</label>
-                <select class="form-control" name="grant_id" required>
-                    <option value="">Select Grant</option>
-                    @foreach($grants as $grant)
-                        <option value="{{ $grant->id }}" {{ $milestone->grant_id == $grant->id ? 'selected' : '' }}>{{ $grant->project_title }}</option>
-                    @endforeach
-                </select>
             </div>
 
             <button type="submit" class="btn btn-success btn-md" style="background-color: #28a745; border-color: #218838;">Update Milestone</button>

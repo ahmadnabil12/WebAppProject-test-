@@ -13,6 +13,16 @@
             </div>
 
             <div class="form-group mb-3">
+            <label>Grant List</label>
+            <select class="form-control" name="grant_id" required>
+                <option value="">Select Grant</option>
+                @foreach($grants as $grant)
+                    <option value="{{ $grant->id }}">{{ $grant->project_title }}</option>
+                @endforeach
+            </select>
+            </div>
+
+            <div class="form-group mb-3">
                 <label for="completion_date" class="form-label">Completion Date</label>
                 <input type="date" class="form-control" id="completion_date" name="completion_date" required>
             </div>
@@ -34,16 +44,6 @@
             <div class="form-group mb-3">
                 <label for="remark" class="form-label">Remark</label>
                 <input type="text" class="form-control" id="remark" name="remark" required>
-            </div>
-
-            <div class="form-group mb-3">
-            <label>Grant List</label>
-            <select class="form-control" name="grant_id" required>
-                <option value="">Select Grant</option>
-                @foreach($grants as $grant)
-                    <option value="{{ $grant->id }}">{{ $grant->project_title }}</option>
-                @endforeach
-            </select>
             </div>
             
             <!--div class="form-group mb-3">

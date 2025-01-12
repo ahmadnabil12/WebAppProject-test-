@@ -33,6 +33,7 @@
                 <thead class="table-dark">
                     <tr>
                         <th>Milestone Title</th>
+                        <th>Grant Associated</th>
                         <th>Completion Date</th>
                         <th>Deliverable</th>
                         <th>Status</th>
@@ -44,6 +45,7 @@
                     @forelse($milestones as $milestone)
                         <tr>
                             <td>{{ $milestone->milestone_title }}</td>
+                            <td>{{ $milestone->grant->project_title }}</td>
                             <td>{{ \Carbon\Carbon::parse($milestone->completion_date)->format('d M, Y') }}</td>
                             <td>{{ $milestone->deliverable }}</td>
                             <td>{{ $milestone->status }}</td>
@@ -52,6 +54,7 @@
                                 <!-- View Button -->
                                 <a href="{{ route('milestones.show', $milestone->id) }}" class="btn btn-sm me-2" style="background-color: #007bff; border-color: #0069d9;">View</a>
 
+                                @can('isLeader', $grant)
                                 <!-- Edit Button (only for leader) -->
                                 <a href="{{ route('milestones.edit', $milestone->id) }}" class="btn btn-sm me-2" style="background-color: #adb5bd; border-color: #6c757d;">Edit</a>
                                 
@@ -61,6 +64,7 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm" style="background-color: #dc3545; border-color: #dc3545;">Delete</button>
                                 </form>
+                                @endcan
                             </td>
                         </tr>
                     @empty

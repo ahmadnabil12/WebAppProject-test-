@@ -25,7 +25,7 @@
         </div>
 
         <div class="mb-3">
-            <strong>Grant:</strong> {{ $milestone->grant->project_title }} <!-- Show the associated grant -->
+            <strong>Grant Associated:</strong> {{ $milestone->grant->project_title }} <!-- Show the associated grant -->
         </div>
 
         <div class="mb-3">
