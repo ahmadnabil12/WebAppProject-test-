@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container mt-5" style="background-color: #121212; color: white; padding: 20px; border-radius: 10px;">
+    <div class="container mt-5" style="background-color: #f4f6f9; color: #2c3e50; padding: 20px; border-radius: 10px;">
         <div class="row mb-4">
             <div class="col">
-                <h1 class="text-center text-light">List of Grants</h1>
+                <h1 class="text-center text-dark">List of Grants</h1>
             </div>
         </div>
 
@@ -21,18 +21,18 @@
             </div>
         @endif
 
+        @can('isAdmin', App\Models\User::class)
         <!-- Button to add a new grant -->
-        @can('isAdmin', App\Models\User::class) 
         <div class="mb-3">
-            <a href="{{ route('grants.create') }}" class="btn btn-success btn-lg" style="background-color: #28a745; border-color: #218838;">Add New Grant</a>
+            <a href="{{ route('grants.create') }}" class="btn btn-success btn-lg" style="background-color: #28a745; border-color: #218838; color: white;">Add New Grant</a>
         </div>
         @endcan
 
         <!-- Table to display grants -->
-        <div class="card shadow-sm" style="background-color: #1e1e1e; border-color: #333;">
+        <div class="card shadow-sm" style="background-color: #ffffff; border-color: #ddd;">
             <div class="card-body">
-                <table class="table table-hover table-bordered table-striped" style="background-color: #212529; color: white;">
-                    <thead class="table-dark">
+                <table class="table table-hover table-bordered table-striped" style="background-color: #f9f9f9; color: #2c3e50;">
+                    <thead class="bg-primary text-white">
                         <tr>
                             <th>Project Title</th>
                             <th>Project Description</th> 
@@ -59,17 +59,17 @@
                                
                                 <td class="d-flex">
                                     <!-- View Button -->
-                                    <a href="{{ route('grants.show', $grant->id) }}" class="btn btn-info btn-sm me-2" style="background-color: #007bff; border-color: #0069d9;">View</a>
+                                    <a href="{{ route('grants.show', $grant->id) }}" class="btn btn-info btn-sm me-2" style="background-color: #17a2b8; border-color: #117a8b; color: white; margin-right: 5px;">View</a>
 
                                     @can('AdminStaff', App\Models\User::class)
                                     <!-- Edit Button -->
-                                    <a href="{{ route('grants.edit', $grant->id) }}" class="btn btn-secondary btn-sm me-2" style="background-color: #adb5bd; border-color: #6c757d;">Edit</a>
+                                    <a href="{{ route('grants.edit', $grant->id) }}" class="btn btn-secondary btn-sm me-2" style="background-color: #007bff; border-color: #0069d9; color: white; margin-right: 5px;">Edit</a>
 
                                     <!-- Delete Button with confirmation -->
                                     <form action="{{ route('grants.destroy', $grant->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" style="background-color: #dc3545; border-color: #dc3545;">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" style="background-color: #e74c3c; border-color: #c0392b; margin-right: 5px;">Delete</button>
                                     </form>
                                     @endcan
                                 </td>

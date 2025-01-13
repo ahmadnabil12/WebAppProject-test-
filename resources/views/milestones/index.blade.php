@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container mt-5" style="background-color: #121212; color: white; padding: 20px; border-radius: 10px;">
-    <h1 class="text-center text-light mb-4">
-        Milestones for Grant: {{ $grant->project_title }}
+<div class="container mt-5" style="background-color: #f4f6f9; color: #2c3e50; padding: 20px; border-radius: 10px;">
+    <h1 class="text-center text-dark mb-4">
+        List of Milestones
     </h1>
 
     <!-- Display success or error messages -->
@@ -27,10 +27,10 @@
     @endcan
 
     <!-- Table to display milestones -->
-    <div class="card shadow-sm" style="background-color: #1e1e1e; border-color: #333;">
+    <div class="card shadow-sm" style="background-color: #ffffff; border-color: #ddd;">
         <div class="card-body">
-            <table class="table table-hover table-bordered table-striped" style="background-color: #212529; color: white;">
-                <thead class="table-dark">
+            <table class="table table-hover table-bordered table-striped" style="background-color: #f9f9f9; color: #2c3e50;">
+                <thead class="bg-primary text-white">
                     <tr>
                         <th>Milestone Title</th>
                         <th>Grant Associated</th>
@@ -52,17 +52,17 @@
                             <td>{{ $milestone->remark }}</td>
                             <td class="d-flex">
                                 <!-- View Button -->
-                                <a href="{{ route('milestones.show', $milestone->id) }}" class="btn btn-sm me-2" style="background-color: #007bff; border-color: #0069d9;">View</a>
+                                <a href="{{ route('milestones.show', $milestone->id) }}" class="btn btn-sm me-2" style="background-color: #17a2b8; border-color: #117a8b; color: white; margin-right: 5px;">View</a>
 
                                 @can('isLeader', $grant)
                                 <!-- Edit Button (only for leader) -->
-                                <a href="{{ route('milestones.edit', $milestone->id) }}" class="btn btn-sm me-2" style="background-color: #adb5bd; border-color: #6c757d;">Edit</a>
+                                <a href="{{ route('milestones.edit', $milestone->id) }}" class="btn btn-sm me-2" style="background-color: #007bff; border-color: #0069d9; color: white; margin-right: 5px;">Edit</a>
                                 
                                 <!-- Delete Button (only for leader) -->
                                 <form action="{{ route('milestones.destroy', $milestone->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm" style="background-color: #dc3545; border-color: #dc3545;">Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm" style="background-color: #e74c3c; border-color: #c0392b; margin-right: 5px;">Delete</button>
                                 </form>
                                 @endcan
                             </td>

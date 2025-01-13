@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container mt-5" style="background-color: #121212; color: white; padding: 20px; border-radius: 10px;">
-        <h1 class="text-center text-light mb-4">Edit Milestone</h1>
+    <div class="container mt-5" style="background-color: #f4f6f9; color: #2c3e50; padding: 20px; border-radius: 10px;">
+        <h1 class="text-center text-dark mb-4">Edit Milestone</h1>
 
         <form action="{{ route('milestones.update', $milestone->id) }}" method="POST">
             @csrf

@@ -1,7 +1,20 @@
 @extends('layouts.admin')
+
 @section('content')
-    <div class="container mt-5" style="background-color: #121212; color: white; padding: 20px; border-radius: 10px;">
-        <h1 class="text-center text-light mb-4">Edit Academician</h1>
+    <div class="container mt-5" style="background-color: #f4f6f9; color: #2c3e50; padding: 20px; border-radius: 10px;">
+        <h1 class="text-center text-dark mb-4">Edit Academician</h1>
+
+        <!-- Display Validation Errors -->
+        @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: #dc3545; border-color: #c82333; color: white;">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
 
         <form action="{{ route('academicians.update', $academician->id) }}" method="POST">
             @csrf
@@ -25,7 +38,7 @@
             <div class="form-group mb-3">
                 <label for="college" class="form-label">College</label>
                 <select name="college" id="college" class="form-control" required>
-                <option value="College of Computing & Informatics (CCI)" {{ $academician->college == 'College of Computing & Informatics (CCI)' ? 'selected' : '' }}>College of Computing & Informatics (CCI)</option>
+                    <option value="College of Computing & Informatics (CCI)" {{ $academician->college == 'College of Computing & Informatics (CCI)' ? 'selected' : '' }}>College of Computing & Informatics (CCI)</option>
                     <option value="College of Engineering (COE)" {{ $academician->college == 'College of Engineering (COE)' ? 'selected' : '' }}>College of Engineering (COE)</option>
                     <option value="UNITEN Business School (UBS)" {{ $academician->college == 'UNITEN Business School (UBS)' ? 'selected' : '' }}>UNITEN Business School (UBS)</option>
                 </select>
@@ -34,15 +47,10 @@
             <div class="form-group mb-3">
                 <label for="department" class="form-label">Department</label>
                 <select name="department" id="department" class="form-control" required>
-                    <option value="" disabled>Select Department</option>
                     <option value="Department of Computing" {{ $academician->department == 'Department of Computing' ? 'selected' : '' }}>Department of Computing</option>
                     <option value="Department of Informatics" {{ $academician->department == 'Department of Informatics' ? 'selected' : '' }}>Department of Informatics</option>
-                    <option value="Department of Foundation and Diploma Studies" {{ $academician->department == 'Department of Foundation and Diploma Studies' ? 'selected' : '' }}>Department of Foundation and Diploma Studies</option>
-                    <option value="Department of Electrical & Electronics Engineering" {{ $academician->department == 'Department of Electrical & Electronics Engineering' ? 'selected' : '' }}>Department of Electrical & Electronics Engineering</option>
-                    <option value="Department of Mechanical Engineering" {{ $academician->department == 'Department of Mechanical Engineering' ? 'selected' : '' }}>Department of Mechanical Engineering</option>
                     <option value="Department of Civil Engineering" {{ $academician->department == 'Department of Civil Engineering' ? 'selected' : '' }}>Department of Civil Engineering</option>
-                    <option value="Department of Accounting and Economic" {{ $academician->department == 'Department of Accounting and Economic' ? 'selected' : '' }}>Department of Accounting and Economic</option>
-                    <option value="Department of Management" {{ $academician->department == 'Department of Management' ? 'selected' : '' }}>Department of Management</option>
+                    <!-- Add other departments as needed -->
                 </select>
             </div>
 
@@ -56,8 +64,8 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Update Academician</button>
-            <a href="{{ route('academicians.index') }}" class="btn btn-secondary ms-2">Cancel</a>
+            <button type="submit" class="btn btn-success" style="background-color: #28a745; border-color: #218838;">Update Academician</button>
+            <a href="{{ route('academicians.index') }}" class="btn btn-secondary ms-2" style="background-color: #6c757d; border-color: #5a6268;">Cancel</a>
         </form>
     </div>
 @endsection

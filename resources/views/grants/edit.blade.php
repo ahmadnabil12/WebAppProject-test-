@@ -1,17 +1,18 @@
-@extends('layouts.admnin')
+@extends('layouts.admin')
 
 @section('content')
-    <div class="container mt-5" style="background-color: #121212; color: white; padding: 20px; border-radius: 10px;">
-        <h1 class="text-center text-light mb-4">Edit Grant</h1>
+    <div class="container mt-5" style="background-color: #f4f6f9; color: #2c3e50; padding: 20px; border-radius: 10px;">
+        <h1 class="text-center text-dark mb-4">Edit Grant</h1>
 
         <!-- Display Validation Errors -->
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: #dc3545; border-color: #c82333; color: white;">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
 
@@ -54,7 +55,6 @@
                 <input type="number" class="form-control" id="duration" name="duration" value="{{ $grant->duration }}" required>
             </div>
 
-            <!-- Project Leader Dropdown -->
             <div class="form-group mb-3">
                 <label class="form-label" for="leader_id">Project Leader</label>
                 <select class="form-control" id="leader_id" name="leader_id" required>
@@ -68,7 +68,6 @@
                 </select>
             </div>
 
-            <!-- Project Members Checkboxes -->
             <div class="form-group mb-3">
                 <label class="form-label" for="members">Project Members</label>
                 @foreach ($academicians as $academician)
@@ -82,8 +81,8 @@
                 @endforeach
             </div>
 
-            <button type="submit" class="btn btn-success btn-md" style="background-color: #28a745; border-color: #218838;">Update Grant</button>
-            <a href="{{ route('grants.index') }}" class="btn btn-secondary btn-md ms-2">Cancel</a>
+            <button type="submit" class="btn btn-success" style="background-color: #28a745; border-color: #218838;">Update Grant</button>
+            <a href="{{ route('grants.index') }}" class="btn btn-secondary btn-md ms-2" style="background-color: #6c757d; border-color: #5a6268;">Cancel</a>
         </form>
     </div>
 @endsection

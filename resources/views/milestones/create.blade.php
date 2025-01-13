@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container mt-5" style="background-color: #121212; color: white; padding: 20px; border-radius: 10px;">
-        <h1 class="text-center text-light mb-4">Create New Milestone</h1>
+    <div class="container mt-5" style="background-color: #f4f6f9; color: #2c3e50; padding: 20px; border-radius: 10px;">
+        <h1 class="text-center text-dark mb-4">Create New Milestone</h1>
 
         <form action="{{ route('milestones.store') }}" method="POST">
             @csrf
@@ -13,13 +13,13 @@
             </div>
 
             <div class="form-group mb-3">
-            <label>Grant List</label>
-            <select class="form-control" name="grant_id" required>
-                <option value="">Select Grant</option>
-                @foreach($grants as $grant)
-                    <option value="{{ $grant->id }}">{{ $grant->project_title }}</option>
-                @endforeach
-            </select>
+                <label>Grant List</label>
+                <select class="form-control" name="grant_id" required>
+                    <option value="">Select Grant</option>
+                    @foreach($grants as $grant)
+                        <option value="{{ $grant->id }}">{{ $grant->project_title }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group mb-3">
@@ -45,11 +45,6 @@
                 <label for="remark" class="form-label">Remark</label>
                 <input type="text" class="form-control" id="remark" name="remark" required>
             </div>
-            
-            <!--div class="form-group mb-3">
-                <label for="date_updated" class="form-label">Date Updated</label>
-                <input type="date" class="form-control" id="date_updated" name="date_updated" required>
-            </div-->
 
             <button type="submit" class="btn btn-success btn-md" style="background-color: #28a745; border-color: #218838;">Save Milestone</button>
             <a href="{{ route('milestones.index') }}" class="btn btn-secondary btn-md ms-2">Cancel</a>

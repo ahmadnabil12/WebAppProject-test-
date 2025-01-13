@@ -1,9 +1,10 @@
 @extends('layouts.admin')
+
 @section('content')
-    <div class="container mt-5" style="background-color: #121212; color: white; padding: 20px; border-radius: 10px;">
+    <div class="container mt-5" style="background-color: #f4f6f9; color: #2c3e50; padding: 20px; border-radius: 10px;">
         <div class="row mb-4">
             <div class="col">
-                <h1 class="text-center text-light">List of Academicians</h1>
+                <h1 class="text-center text-dark">List of Academicians</h1>
             </div>
         </div>
 
@@ -23,15 +24,15 @@
         @can('isAdmin', App\Models\User::class)
         <!-- Button to add a new academician -->
         <div class="mb-3">
-            <a href="{{ route('academicians.create') }}" class="btn btn-success btn-lg" style="background-color: #28a745; border-color: #218838;">Add New Academician</a>
+            <a href="{{ route('academicians.create') }}" class="btn btn-success btn-lg" style="background-color: #28a745; border-color: #218838; color: white;">Add New Academician</a>
         </div>
         @endcan
 
         <!-- Table to display academicians -->
-        <div class="card shadow-sm" style="background-color: #1e1e1e; border-color: #333;">
+        <div class="card shadow-sm" style="background-color: #ffffff; border-color: #ddd;">
             <div class="card-body">
-                <table class="table table-hover table-bordered table-striped" style="background-color: #212529; color: white;">
-                    <thead class="table-dark">
+                <table class="table table-hover table-bordered table-striped" style="background-color: #f9f9f9; color: #2c3e50;">
+                    <thead class="bg-primary text-white">
                         <tr>
                             <th>Name</th>
                             <th>Staff Number</th>
@@ -53,11 +54,11 @@
                                 <td>{{ $academician->position }}</td>
                                 <td class="d-flex">
                                     <!-- View Button -->
-                                    <a href="{{ route('academicians.show', $academician->id) }}" class="btn btn-info btn-sm me-2" style="background-color: #007bff; border-color: #0069d9;">View</a>
+                                    <a href="{{ route('academicians.show', $academician->id) }}" class="btn btn-info btn-sm me-2" style="background-color: #17a2b8; border-color: #117a8b; margin-right: 5px;">View</a>
 
                                     @can('isAdmin', App\Models\User::class)
-                                    <!-- Edit Button -->
-                                    <a href="{{ route('academicians.edit', $academician->id) }}" class="btn btn-secondary btn-sm me-2 text-dark" style="background-color: #adb5bd; border-color: #6c757d;">Edit</a>
+                                    <!-- Edit Button with new color and white text -->
+                                    <a href="{{ route('academicians.edit', $academician->id) }}" class="btn btn-info btn-sm me-2" style="background-color: #007bff; border-color: #0069d9; color: white; margin-right: 5px;">Edit</a>
                                     @endcan
 
                                     @can('isAdmin', App\Models\User::class)
@@ -65,7 +66,7 @@
                                     <form action="{{ route('academicians.destroy', $academician->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" style="background-color: #dc3545; border-color: #dc3545;">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" style="background-color: #e74c3c; border-color: #c0392b; margin-right: 5px;">Delete</button>
                                     </form>
                                     @endcan
                                 </td>
