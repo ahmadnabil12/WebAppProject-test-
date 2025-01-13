@@ -34,8 +34,7 @@
 
             <!-- Main Content -->
             <div id="content">
-
-               @include('includes.topbar')
+               @include('includes.topbar') <!--Topbar-->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">

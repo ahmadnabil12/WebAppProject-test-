@@ -105,7 +105,6 @@
 
         <!-- Action Buttons -->
         <div class="d-flex justify-content-center mt-4">
-            <a href="{{ route('grants.edit', $grant->id) }}" class="btn btn-secondary" style="background-color: #adb5bd; border-color: #6c757d;">Edit</a>
             <a href="{{ route('grants.index') }}" class="btn btn-secondary ms-2" style="background-color: #6c757d; border-color: #5a6268;">Back to List</a>
         </div>
     </div>

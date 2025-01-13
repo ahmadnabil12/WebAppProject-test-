@@ -1,110 +1,75 @@
 @extends('layouts.admin')
 @section('content')
-<!-- Begin Page Content -->
-<div class="container-fluid">
-
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-</div>
 
 <!-- Content Row -->
 <div class="row">
 
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Academicians Card -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Earnings (Monthly)</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                            Academicians
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $academiciansCount }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Grants Card -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Earnings (Annual)</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                            Grants
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $grantsCount }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-briefcase fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Milestones Card -->
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Milestones
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $milestonesCount }}</div>
                         </div>
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                            </div>
-                            <div class="col">
-                                <div class="progress progress-sm mr-2">
-                                    <div class="progress-bar bg-info" role="progressbar"
-                                        style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
-                            </div>
+                        <div class="col-auto">
+                            <i class="fas fa-tasks fa-2x text-gray-300"></i>
                         </div>
                     </div>
-                    <div class="col-auto">
-                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Pending Requests Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Pending Requests</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Content Row -->
+<!-- Content Row ->
 
 <div class="row">
 
-    <!-- Area Chart -->
-    <div class="col-xl-8 col-lg-7">
+    <-- Area Chart ->
+    <--div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
+            <-- Card Header - Dropdown ->
             <div
                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
@@ -123,57 +88,42 @@
                     </div>
                 </div>
             </div>
-            <!-- Card Body -->
+            <-- Card Body ->
             <div class="card-body">
                 <div class="chart-area">
                     <canvas id="myAreaChart"></canvas>
                 </div>
             </div>
         </div>
-    </div>
+    </div->
 
-    <!-- Pie Chart -->
+    <-- Pie Chart ->
     <div class="col-xl-4 col-lg-5">
         <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div
-                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <-- Card Header - Dropdown ->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
             </div>
-            <!-- Card Body -->
+            <-- Card Body ->
             <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
                     <canvas id="myPieChart"></canvas>
                 </div>
                 <div class="mt-4 text-center small">
                     <span class="mr-2">
-                        <i class="fas fa-circle text-primary"></i> Direct
+                        <i class="fas fa-circle text-primary"></i> Academicians
                     </span>
                     <span class="mr-2">
-                        <i class="fas fa-circle text-success"></i> Social
+                        <i class="fas fa-circle text-success"></i> Grants
                     </span>
                     <span class="mr-2">
-                        <i class="fas fa-circle text-info"></i> Referral
+                        <i class="fas fa-circle text-info"></i> Milestones
                     </span>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div-->
 
 <!-- Content Row -->
 <div class="row">
@@ -184,28 +134,34 @@
         <!-- Project Card Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                <h6 class="m-0 font-weight-bold text-primary">RGMS</h6>
             </div>
             <div class="card-body">
-                <h4 class="small font-weight-bold">Server Migration <span
-                        class="float-right">20%</span></h4>
+                <!-- Academician -->
+                <h4 class="small font-weight-bold">Academicians <span 
+                        class="float-right">{{ $academiciansCount }}</span></h4>
                 <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: {{ min($academiciansCount * 1.5, 100) }}%" 
+                        aria-valuenow="{{ $academiciansCount }}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <h4 class="small font-weight-bold">Sales Tracking <span
-                        class="float-right">40%</span></h4>
+
+                <!--Grants-->
+                <h4 class="small font-weight-bold">Grants <span
+                        class="float-right">{{ $grantsCount }}</span></h4>
                 <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
-                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{ min($grantsCount * 1.5, 100) }}%" 
+                        aria-valuenow="{{ $grantsCount }}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <h4 class="small font-weight-bold">Customer Database <span
-                        class="float-right">60%</span></h4>
+
+                <!--Milestones-->
+                <h4 class="small font-weight-bold">Milestones <span
+                        class="float-right">{{ $milestonesCount }}</span></h4>
                 <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%"
-                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-info" role="progressbar" style="width: {{ min($milestonesCount * 1.5, 100) }}%"
+                        aria-valuenow="{{ $milestonesCount }}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <h4 class="small font-weight-bold">Payout Details <span
+
+                <!--h4 class="small font-weight-bold">Payout Details <span
                         class="float-right">80%</span></h4>
                 <div class="progress mb-4">
                     <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
@@ -216,7 +172,7 @@
                 <div class="progress">
                     <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+                </div-->
             </div>
         </div>
 
@@ -225,28 +181,26 @@
             <div class="col-lg-6 mb-4">
                 <div class="card bg-primary text-white shadow">
                     <div class="card-body">
-                        Primary
-                        <div class="text-white-50 small">#4e73df</div>
+                        Academicians
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 mb-4">
                 <div class="card bg-success text-white shadow">
                     <div class="card-body">
-                        Success
-                        <div class="text-white-50 small">#1cc88a</div>
+                        Grants
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 mb-4">
                 <div class="card bg-info text-white shadow">
                     <div class="card-body">
-                        Info
-                        <div class="text-white-50 small">#36b9cc</div>
+                        Milestones
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-4">
+
+            <!--div class="col-lg-6 mb-4">
                 <div class="card bg-warning text-white shadow">
                     <div class="card-body">
                         Warning
@@ -285,33 +239,35 @@
                         <div class="text-white-50 small">#5a5c69</div>
                     </div>
                 </div>
-            </div>
+            </div-->
         </div>
 
     </div>
 
     <div class="col-lg-6 mb-4">
 
-        <!-- Illustrations -->
+        <!-- About RGMS -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                <h6 class="m-0 font-weight-bold text-primary">About RGMS</h6>
             </div>
             <div class="card-body">
                 <div class="text-center">
                     <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
                         src="img/undraw_posting_photo.svg" alt="...">
                 </div>
-                <p>Add some quality, svg illustrations to your project courtesy of <a
-                        target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                    constantly updated collection of beautiful svg images that you can use
-                    completely free and without attribution!</p>
-                <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                    unDraw &rarr;</a>
+                <p>The Research Grant Management System (RGMS) is a centralized platform designed to streamline the management of research grants at UNITEN Innovation and Research Management Center (iRMC). It allows Admin Executives to input and manage project details such as project leaders, grant amounts, project titles, and team members.</p>
+
+                <p>Each research grant is led by a project leader and includes one or more project members. The project leader is responsible for setting milestones, tracking progress, and updating the status of the project. Academicians, serving as project leaders or members, are essential to the process.</p>
+
+                <p>RGMS enables iRMC staff to view and update project information, ensuring accurate tracking of research grants. Project leaders can also update team members and project details, facilitating efficient project management and transparent communication.</p>
+
+                <!--a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
+                    unDraw &rarr;</a-->
             </div>
         </div>
 
-        <!-- Approach -->
+        <!-- Approach ->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
@@ -323,7 +279,7 @@
                 <p class="mb-0">Before working with this theme, you should become familiar with the
                     Bootstrap framework, especially the utility classes.</p>
             </div>
-        </div>
+        </div-->
 
     </div>
 </div>
@@ -331,4 +287,39 @@
 </div>
 <!-- /.container-fluid -->
 
+</div>
+<!-- End of Main Content -->
 @endsection
+
+<!-- Inline Script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById("myPieChart");
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ["Academicians", "Grants", "Milestones"], // Custom Labels
+            datasets: [{
+                data: [{{ $academiciansCount }}, {{ $grantsCount }}, {{ $milestonesCount }}],
+                backgroundColor: ['#007bff', '#28a745', '#17a2b8'],
+                hoverBackgroundColor: ['#0056b3', '#218838', '#138496'],
+                hoverBorderColor: "#fff",
+            }],
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw; // Display counts with labels
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>

@@ -19,6 +19,16 @@
                     </div>
                 </div>
 
+                <!-- Associated Grant -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <strong>Grant Associated:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        <p>{{ $milestone->grant->project_title }}</p>
+                    </div>
+                </div>
+
                 <!-- Completion Date -->
                 <div class="row mb-3">
                     <div class="col-md-4">
@@ -59,16 +69,6 @@
                     </div>
                 </div>
 
-                <!-- Associated Grant -->
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <strong>Grant Associated:</strong>
-                    </div>
-                    <div class="col-md-8">
-                        <p>{{ $milestone->grant->project_title }}</p>
-                    </div>
-                </div>
-
                 <!-- Date Updated -->
                 <div class="row mb-3">
                     <div class="col-md-4">
@@ -83,8 +83,7 @@
 
         <!-- Action Buttons -->
         <div class="d-flex justify-content-center mt-4">
-            <a href="{{ route('milestones.edit', $milestone->id) }}" class="btn btn-secondary" style="background-color: #adb5bd; border-color: #6c757d;">Edit</a>
-            <a href="{{ route('milestones.index', $milestone->grant_id) }}" class="btn btn-secondary ms-2" style="background-color: #6c757d; border-color: #5a6268;">Back to List</a>
+            <a href="{{ route('milestones.index') }}" class="btn btn-secondary ms-2" style="background-color: #6c757d; border-color: #5a6268;">Back to List</a>
         </div>
     </div>
 @endsection

@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AcademicianController;
 use App\Http\Controllers\GrantController;
 use App\Http\Controllers\MilestoneController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,11 +16,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
 Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
-Route::middleware(['auth'])->get('/dashboard', function () {
+/*Route::middleware(['auth'])->get('/dashboard', function () {
     return view('dashboard');
-});
+});*/
 
 Auth::routes();
 

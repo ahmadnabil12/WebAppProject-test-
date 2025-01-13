@@ -10,6 +10,23 @@
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
     <div class="input-group">
+        <!-- Disabled input field -->
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+            aria-label="Search" aria-describedby="basic-addon2" disabled>
+        <div class="input-group-append">
+            <!-- Disabled button -->
+            <button class="btn btn-primary" type="button" disabled>
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+<!-- Can Search-->
+<!--form
+    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <div class="input-group">
         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
@@ -18,7 +35,7 @@
             </button>
         </div>
     </div>
-</form>
+</form-->
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
@@ -49,8 +66,12 @@
 
     <!-- Nav Item - Alerts -->
     <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" aria-expanded="false">
+
+            <!-- can click-->
+        <!--a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"-->
+            
             <i class="fas fa-bell fa-fw"></i>
             <!-- Counter - Alerts -->
             <span class="badge badge-danger badge-counter">3+</span>
@@ -79,8 +100,12 @@
 
     <!-- Nav Item - Messages -->
     <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" aria-expanded="false">
+
+            <!-- can click -->
+        <!--a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"-->
+            
             <i class="fas fa-envelope fa-fw"></i>
             <!-- Counter - Messages -->
             <span class="badge badge-danger badge-counter">7</span>
@@ -111,19 +136,25 @@
     <div class="topbar-divider d-none d-sm-block"></div>
 
     <!-- Nav Item - User Information -->
-    <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <!-- Display the user's name on a separate line -->
-                <div class="mr-2 d-none d-lg-inline text-gray-600 small" style="display:block;">
-                    {{ Auth::user()->name }}
+    <div class="nav-item dropdown no-arrow">
+        <!--a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            
+                <-- Display the user's name on a separate line ->
+                <div class="mr-2 d-none d-lg-inline text-gray-600 small" style="display:block;"> {{ Auth::user()->name }}</div>
+                <-- Display the user's role (userCategory) below the name ->
+                <div class="d-none d-lg-inline text-gray-400 small" style="font-size: 0.8em; color: #6c757d; display:block;"> {{ Auth::user()->userCategory }}
                 </div>
-                <!-- Display the user's role (userCategory) below the name -->
-                <div class="d-none d-lg-inline text-gray-400 small" style="font-size: 0.8em; color: #6c757d; display:block;">
-                    {{ Auth::user()->userCategory }}
+        </a-->
+
+        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img class="img-profile rounded-circle" src="img/user.png" style="margin-right: 20px;">
+                <span class="avatar avatar-sm" style="background-image: url(img/user.png"></span>
+                <div class="d-none d-xl-block ps-2">
+                <div>{{ Auth::user()->name }}</div> <!-- Dynamically display the logged-in user's name -->
+                <div class="mt-1 small text-secondary">{{ Auth::user()->userCategory }}</div>
+                <!--div class="mt-1 small text-secondary">UI Designer</div> < Add a role or designation if needed -->
                 </div>
-            <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
-        </a>
+            </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
             <a class="dropdown-item" href="#">
@@ -150,7 +181,7 @@
                 @csrf
             </form>
         </div>
-    </li>
+</div>
 
 </ul>
 
