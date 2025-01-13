@@ -7,7 +7,7 @@
         <!-- Milestone Details Card -->
         <div class="card shadow-sm" style="background-color: #ffffff; border-radius: 10px;">
             <div class="card-body">
-                <h3 class="card-title text-center text-primary mb-4">Milestone Information</h3>
+                <h3 class="card-title text-center text-primary mb-4"></h3>
 
                 <!-- Milestone Title -->
                 <div class="row mb-3">

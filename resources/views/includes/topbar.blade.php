@@ -147,7 +147,7 @@
         </a-->
 
         <a href="#" class="nav-link d-flex lh-1 text-reset p-0" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img class="img-profile rounded-circle" src="img/user.png" style="margin-right: 20px;">
+        <img class="img-profile rounded-circle" src="/img/user.png" style="margin-right: 20px;">
                 <span class="avatar avatar-sm" style="background-image: url(img/user.png"></span>
                 <div class="d-none d-xl-block ps-2">
                 <div>{{ Auth::user()->name }}</div> <!-- Dynamically display the logged-in user's name -->
@@ -157,7 +157,7 @@
             </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">
+            <!--a class="dropdown-item" href="#">
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                 Profile
             </a>
@@ -168,7 +168,7 @@
             <a class="dropdown-item" href="#">
                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                 Activity Log
-            </a>
+            </a-->
             <div class="dropdown-divider"></div>
             <!-- Logout Button -->
             <a class="dropdown-item" href="{{ route('logout') }}" 

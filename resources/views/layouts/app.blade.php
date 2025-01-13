@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'RGMS') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -16,9 +16,9 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body style="background-color: #121212; color: white;">  <!-- Black background with white text -->
+<body style="background: linear-gradient(135deg, #e3f2fd, #ede7f6); color: #1e88e5;">  <!-- Light blue and purple gradient background -->
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">  <!-- Dark navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">  <!-- Dark blue navbar -->
             <div class="container">
                 <!-- Change the brand name to RGMS -->
                 <a class="navbar-brand text-light" href="{{ url('/') }}">
@@ -33,19 +33,6 @@
                     <ul class="navbar-nav me-auto">
                         <!-- Add Navbar Links Here -->
                     </ul>
-
-                    <!-- Middle Navbar (Academicians, Milestones, Grants Links) 
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{{ route('academicians.index') }}">{{ __('Academicians') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{{ route('grants.index') }}">{{ __('Grants') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{{ route('milestones.index') }}">{{ __('Milestones') }}</a>
-                        </li>
-                    </ul>-->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">

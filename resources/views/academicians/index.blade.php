@@ -2,11 +2,24 @@
 
 @section('content')
     <div class="container mt-5" style="background-color: #f4f6f9; color: #2c3e50; padding: 20px; border-radius: 10px;">
-        <div class="row mb-4">
+
+    <!--Breadcrumb-->
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Academicians</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+        <!--div class="row mb-4"-->
             <div class="col">
                 <h1 class="text-center text-dark">List of Academicians</h1>
             </div>
-        </div>
+        <!--/div-->
 
         <!-- Display success or error messages -->
         @if(session('success'))

@@ -7,7 +7,7 @@
         <!-- Academician Details Card -->
         <div class="card shadow-sm" style="background-color: #ffffff; border-radius: 10px;">
             <div class="card-body">
-                <h3 class="card-title text-center text-primary mb-4">Personal Information</h3>
+                <h3 class="card-title text-center text-primary mb-4"></h3>
 
                 <!-- Name -->
                 <div class="row mb-3">

@@ -7,7 +7,7 @@
         <!-- Grant Details Card -->
         <div class="card shadow-sm" style="background-color: #ffffff; border-radius: 10px;">
             <div class="card-body">
-                <h3 class="card-title text-center text-primary mb-4">Grant Information</h3>
+                <!--h3 class="card-title text-center text-primary mb-4">Grant Information</h3-->
 
                 <!-- Project Title -->
                 <div class="row mb-3">
@@ -96,10 +96,42 @@
                     </div>
                     <div class="col-md-8">
                         @foreach ($members as $member)
-                            <p>{{ $member->name }}@if (!$loop->last), @endif</p>
+                            {{ $member->name }}@if (!$loop->last), @endif
                         @endforeach
                     </div>
                 </div>
+
+                <!-- List of Milestones -->
+        <h5 class="mt-4" style="font-size: 1.5rem; font-weight: bold;">Milestones</h5>
+        @if ($milestones->isNotEmpty())
+            <table class="table table-bordered mt-3" style="background-color: #f8f9fc; color: #495057;">
+                <thead>
+                    <tr>
+                        <th style="background: #007bff; color: #fff;">No</th>
+                        <th style="background: #007bff; color: #fff;">Milestone Name</th>
+                        <th style="background: #007bff; color: #fff;">Target Completion Date</th>
+                        <th style="background: #007bff; color: #fff;">Deliverable</th>
+                        <th style="background: #007bff; color: #fff;">Status</th>
+                        <th style="background: #007bff; color: #fff;">Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($milestones as $index => $milestone)
+                        <tr>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $milestone->milestone_title }}</td>
+                            <td>{{ \Carbon\Carbon::parse($milestone->completion_date)->format('d M, Y') }}</td>
+                            <td>{{ $milestone->deliverable }}</td>
+                            <td>{{ $milestone->status }}</td>
+                            <td>{{ $milestone->remark }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>No milestones added yet.</p>
+        @endif
+
             </div>
         </div>
 

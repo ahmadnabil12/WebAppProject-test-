@@ -59,6 +59,14 @@ class AppServiceProvider extends ServiceProvider
                         })->exists();
         });
 
+        Gate::define('AdminStaffLeader', function ($user) {
+            return $user->userCategory === 'admin' || $user->userCategory === 'staff' || 
+                   Grant::whereHas('academicians', function ($query) use ($user) {
+                       $query->where('user_id', $user->id)
+                             ->where('role', 'leader');
+                   })->exists();
+        });
+
         /*Gate::define('isMember', function ($user, $grant) {
             return $grant -> academicians()->wherePivot(academician_id, $user->academician_id)->exists();
         });

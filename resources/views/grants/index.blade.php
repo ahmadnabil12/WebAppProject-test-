@@ -2,6 +2,20 @@
 
 @section('content')
     <div class="container mt-5" style="background-color: #f4f6f9; color: #2c3e50; padding: 20px; border-radius: 10px;">
+
+    <!--Breadcrumb-->
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Grants</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
         <div class="row mb-4">
             <div class="col">
                 <h1 class="text-center text-dark">List of Grants</h1>
@@ -61,10 +75,12 @@
                                     <!-- View Button -->
                                     <a href="{{ route('grants.show', $grant->id) }}" class="btn btn-info btn-sm me-2" style="background-color: #17a2b8; border-color: #117a8b; color: white; margin-right: 5px;">View</a>
 
-                                    @can('AdminStaff', App\Models\User::class)
+                                    @can('AdminStaffLeader')
                                     <!-- Edit Button -->
                                     <a href="{{ route('grants.edit', $grant->id) }}" class="btn btn-secondary btn-sm me-2" style="background-color: #007bff; border-color: #0069d9; color: white; margin-right: 5px;">Edit</a>
+                                    @endcan
 
+                                    @can('AdminStaff', App\Models\User::class)
                                     <!-- Delete Button with confirmation -->
                                     <form action="{{ route('grants.destroy', $grant->id) }}" method="POST" style="display:inline;">
                                         @csrf
