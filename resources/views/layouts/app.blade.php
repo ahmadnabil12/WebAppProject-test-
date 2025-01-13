@@ -34,7 +34,7 @@
                         <!-- Add Navbar Links Here -->
                     </ul>
 
-                    <!-- Middle Navbar (Academicians, Milestones, Grants Links) -->
+                    <!-- Middle Navbar (Academicians, Milestones, Grants Links) 
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
                             <a class="nav-link text-light" href="{{ route('academicians.index') }}">{{ __('Academicians') }}</a>
@@ -45,7 +45,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" href="{{ route('milestones.index') }}">{{ __('Milestones') }}</a>
                         </li>
-                    </ul>
+                    </ul>-->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
