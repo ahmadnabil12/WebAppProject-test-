@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container mt-5" style="background-color: #121212; color: white; padding: 20px; border-radius: 10px;">
-        <h1 class="text-center text-light mb-4">Create New Academician</h1>
+    <div class="container mt-5" style="background-color: #f4f6f9; color: #2c3e50; padding: 20px; border-radius: 10px;">
+        <h1 class="text-center text-dark mb-4">Create New Academician</h1>
 
         <form action="{{ route('academicians.store') }}" method="POST">
             @csrf
@@ -49,7 +49,7 @@
             <div class="form-group mb-3">
                 <label for="position" class="form-label">Position</label>
                 <select name="position" id="position" class="form-control" required>
-                <option value="" disabled selected>Select Position</option>
+                    <option value="" disabled selected>Select Position</option>
                     <option value="Professor">Professor</option>
                     <option value="Assoc. Prof.">Assoc. Prof.</option>
                     <option value="Senior Lecturer">Senior Lecturer</option>
@@ -57,7 +57,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Save Academician</button>
+            <button type="submit" class="btn btn-success">Save Academician</button>
             <a href="{{ route('academicians.index') }}" class="btn btn-secondary ms-2">Cancel</a>
         </form>
     </div>
